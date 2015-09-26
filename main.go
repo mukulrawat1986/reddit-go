@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// Call the Get function to get our structs filled with reddit data
-	items, err := redditgo.Get("golang", "2")
+	items, err := redditgo.Decode("aww")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -18,4 +18,8 @@ func main() {
 	for _, item := range items {
 		fmt.Println(item)
 	}
+
+    for _, item := range items {
+        _ = redditgo.Download_images(item.URL, item.Title)
+    }
 }
