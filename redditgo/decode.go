@@ -7,8 +7,8 @@ import (
 	"net/http"
 )
 
-func Get(subreddit string, pageno string) ([]Item, error) {
-	url := fmt.Sprintf("http://www.reddit.com/r/%s.json#page=%s", subreddit, pageno)
+func Decode(subreddit string) ([]Item, error) {
+	url := fmt.Sprintf("http://www.reddit.com/r/%s.json", subreddit)
 	r, err := http.Get(url)
 	if err != nil {
 		return nil, err
