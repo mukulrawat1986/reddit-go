@@ -14,6 +14,8 @@ type Response struct {
 		Children []struct {
 			Data Item
 		}
+		After  string
+		Before string
 	}
 }
 

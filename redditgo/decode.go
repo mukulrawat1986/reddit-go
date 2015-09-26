@@ -7,8 +7,8 @@ import (
 	"net/http"
 )
 
-func Get(subreddit string) ([]Item, error) {
-	url := fmt.Sprintf("http://www.reddit.com/r/%s.json", subreddit)
+func Get(subreddit string, pageno string) ([]Item, error) {
+	url := fmt.Sprintf("http://www.reddit.com/r/%s.json#page=%s", subreddit, pageno)
 	r, err := http.Get(url)
 	if err != nil {
 		return nil, err
@@ -29,5 +29,7 @@ func Get(subreddit string) ([]Item, error) {
 	for i, child := range resp.Data.Children {
 		items[i] = child.Data
 	}
+	//    after := resp.Data.After
+	//    fmt.Printf("%s\n", after)
 	return items, nil
 }

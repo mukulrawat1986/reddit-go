@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// Call the Get function to get our structs filled with reddit data
-	items, err := redditgo.Get("golang")
+	items, err := redditgo.Get("golang", "2")
 	if err != nil {
 		log.Fatal(err)
 	}
