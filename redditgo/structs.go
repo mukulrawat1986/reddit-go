@@ -5,8 +5,9 @@ import (
 )
 
 type Item struct {
-	Title string
-	URL   string
+	Title   string
+	URL     string
+	Is_self bool
 }
 
 type Response struct {
@@ -20,5 +21,5 @@ type Response struct {
 }
 
 func (i Item) String() string {
-	return fmt.Sprintf("%s\n%s", i.Title, i.URL)
+	return fmt.Sprintf("%s\n%s\n%v", i.Title, i.URL, i.Is_self)
 }
